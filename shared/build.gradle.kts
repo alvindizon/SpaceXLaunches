@@ -71,3 +71,11 @@ android {
         minSdk = 24
     }
 }
+
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("com.alvindizon.spacexlaunches.shared.cache")
+        }
+    }
+}
