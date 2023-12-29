@@ -1,3 +1,5 @@
+import kotlin.Boolean;
+
 CREATE TABLE Launch (
     flightNumber INTEGER NOT NULL,
     missionName TEXT NOT NULL,
