@@ -3,38 +3,18 @@ package com.alvindizon.spacexlaunches.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.alvindizon.spacexlaunches.Greeting
+import androidx.activity.viewModels
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainViewModel by viewModels { MainViewModel.Factory }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    GreetingView(Greeting().greet())
-                }
+            SpaceXLaunchesTheme {
+                SpaceXLaunchesListScreen(viewModel = viewModel)
             }
         }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
     }
 }
